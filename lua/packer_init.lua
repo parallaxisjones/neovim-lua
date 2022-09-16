@@ -43,6 +43,7 @@ end
 -- Install plugins
 return packer.startup(function(use)
   -- Add you plugins here:
+
   use 'wbthomason/packer.nvim' -- packer can manage itself
 
   -- File explorer
@@ -149,6 +150,16 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
+  use 'github/copilot.vim'
+  use {'nvim-orgmode/orgmode', config = function()
+      require('orgmode').setup_ts_grammar()
+    end
+  }
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
