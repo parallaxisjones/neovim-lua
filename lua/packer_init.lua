@@ -50,7 +50,7 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-tree.lua'
 
   -- Indent line
-  use 'lukas-reineke/indent-blankline.nvim'
+  use { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
 
   -- Autopair
   use {

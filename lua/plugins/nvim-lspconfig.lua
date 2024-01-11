@@ -29,7 +29,7 @@ vim.cmd([[
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -146,7 +146,7 @@ local opts = {
   -- rust-tools options
   tools = {
     autoSetHints = true,
-    hover_with_actions = true,
+    -- hover_with_actions = true,
     inlay_hints = {
       show_parameter_hints = true,
       parameter_hints_prefix = "",
@@ -165,6 +165,7 @@ local opts = {
           importEnforceGranularity = true,
           importPrefix = "crate"
         },
+        procMacro = { enable = true },
         cargo = {
           allFeatures = true
         },
@@ -175,7 +176,7 @@ local opts = {
       },
       diagnostics = {
           enable = true,
-          disabled = {"unresolved-proc-macro"},
+          -- disabled = {"unresolved-proc-macro"},
           enableExperimental = true,
       },
       inlayHints = {
